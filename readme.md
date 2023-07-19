@@ -1,17 +1,17 @@
-# 提取天蝎webshell的JSP的payload
+# Extract JSP payload for Scorpion webshell
 
-天蝎webshell的JSP payload使用了asm来操作java字节码，然后加密发送到webshell端。天蝎webshell是GUI界面的，不便于批量执行命令，这里将CMD独立提取出来，生成payload.class，可以将其集成到其他程序中以批量执行命令。
+Scorpion webshell's JSP payload uses asm to manipulate java bytecode, and then encrypts it and sends it to the webshell side. Scorpion webshell is a GUI interface, it is not convenient to execute commands in batch, here the CMD is extracted independently to generate payload.class, which can be integrated into other programs to execute commands in batch.
 
-## 编译
+## build
 
-```
+```shell
 cd txws
 mvn clean package
 ```
 
-## 运行
+## run
 
-```
+```shell
 cd target\classes
 cp config .
 cp lib .

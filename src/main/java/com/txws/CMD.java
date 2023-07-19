@@ -44,9 +44,9 @@ class JavaCodeApi {
             if (cdata != null) {
                 return cdata;
             }
-            throw new Exception("读取" + dic + "本地API代码失败！");
+            throw new Exception("Read" + dic + "Native API Code Failure");
         } catch (Exception e) {
-            throw new Exception("读取" + dic + "本地API代码失败！");
+            throw new Exception("Read" + dic + "Native API Code Failure");
         }
     }
 
@@ -96,13 +96,14 @@ public class CMD {
             }
             return cdata;
         } catch (Exception ex) {
-            throw new Exception("加工执行代码错误" + ex.getLocalizedMessage());
+            throw new Exception("Process Execution Code Error" + ex.getLocalizedMessage());
         }
     }
 
     public static void main(String[] args) throws Exception {
-        String cmdPath = "cmd.exe";
-        String cmd = args[0];
+        String cmdPath = args[0];
+        String cmd = args[1];
+        String out = args[2];
         
         CMD c = new CMD();
         LinkedHashMap<String, String> params = new LinkedHashMap<String, String>();
@@ -111,7 +112,7 @@ public class CMD {
         params.put("cmd", cmd);
         c.getBaseCodeExe(params, "java", "CMD");
         byte[] cdata = c.getBaseCodeExe(params, "java", "CMD");
-        File ff = new File("payload.class");
+        File ff = new File(out);
         FileOutputStream payload = new FileOutputStream(ff);
         payload.write(cdata);
         payload.close();
