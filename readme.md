@@ -18,5 +18,5 @@ cp lib .
 
 java -cp lib/asm-9.0.jar; com.txws.CMD <command>
 
-java -cp lib/asm-9.0.jar; com.txws.CMD dir  # 生成执行dir命令的payload
+java -cp lib/asm-9.0.jar; com.txws.CMD dir  # Generate a payload that executes the dir command
 ```
